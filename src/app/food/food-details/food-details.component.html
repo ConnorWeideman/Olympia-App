@@ -1,0 +1,18 @@
+<section id="details">
+    <div class="header">
+        <h1>{{food.name}}</h1>
+        <img *ngIf="food?.photo" src="{{food.photo | img}}" alt="{{food.name}}">
+    </div>
+    <div class="info">
+        <p>{{food.description}}</p>
+        <p>{{food.price | currency:"USD"}}</p>
+        <p>{{food.instructions}}</p>
+        <h2 *ngIf="food?.allergens">Allergens:</h2>
+        <p *ngIf="food?.allergens">{{food.allergens | uppercase}}</p>
+    </div>
+    <div class="buttons">
+        <button (click)="reviews()">View Reviews...</button>
+        <button *ngIf="authService.loggedIn()" (click)="addReviews()">Add Review</button>
+        <button id="return" (click)="return()">Return...</button>
+    </div>
+</section>

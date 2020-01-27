@@ -1,0 +1,16 @@
+<p *ngIf="reviews.length === 0">There are currently no reviews for this food. Would you like to make one?</p>
+
+<section class="review" *ngFor="let review of reviews" id="{{review.id}}">
+    <h2 id="{{review.userId}}">{{review.userNickname}}</h2>
+    <p>{{review.review}}</p>
+    <div class="rating">
+        <img *ngIf="review.rating > 0" src="../assets/images/star.png">
+        <img *ngIf="review.rating > 1" src="../assets/images/star.png">
+        <img *ngIf="review.rating > 2" src="../assets/images/star.png">
+        <img *ngIf="review.rating > 3" src="../assets/images/star.png">
+        <img *ngIf="review.rating > 4" src="../assets/images/star.png">
+    </div>
+    <div *ngIf="(authService.loggedIn() && authService.currentUser.admin) || (authService.loggedIn() && authService.currentUser.id == review.userId)"
+        (click)="removeReview(review)" class="remove">X
+    </div>
+</section>

@@ -6,19 +6,16 @@
     "deprecation": {
       "severity": "warning"
     },
-    "component-class-suffix": true,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
     "directive-selector": [
       true,
       "attribute",
-      "app",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
       "kebab-case"
     ],
     "import-blacklist": [
@@ -54,7 +51,7 @@
     ],
     "no-empty": false,
     "no-inferrable-types": [
-      true,
+      false,
       "ignore-params"
     ],
     "no-non-null-assertion": true,
@@ -70,8 +67,9 @@
     "ordered-imports": false,
     "quotemark": [
       true,
-      "single"
+      "double"
     ],
+    "no-string-literal": false,
     "trailing-comma": false,
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,

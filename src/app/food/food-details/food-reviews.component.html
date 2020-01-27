@@ -1,0 +1,27 @@
+<h1>Food Reviews</h1>
+<review-list *ngIf="!addFood" [reviews]="currentFood.reviews" (removeReviewEmitter)="removeReview($event)">
+</review-list>
+<div id="buttons" *ngIf="!addFood">
+    <button (click)="openForm()">Add New</button>
+    <button [routerLink]="['/food', this.route.snapshot.params['name']]">Return</button>
+</div>
+<form [formGroup]="newReviewForm" (ngSubmit)="saveReview(newReviewForm.value)" *ngIf="addFood" autocomplete="off">
+    <h2>Add a Review</h2>
+    <label for="food">Food:</label>
+    <select id="food" formControlName="food" value="currentFood.name">
+        <option *ngFor="let foodOption of foodData" [selected]="foodOption.name === currentFood.name">
+            {{foodOption.name}}
+        </option>
+    </select>
+    <label for="review">Review:</label>
+    <em *ngIf="review.invalid && review.touched && review.errors.required">Required</em>
+    <em *ngIf="review.invalid && review.touched && review.errors.maxlength">Max length of 400 characters.</em>
+    <em *ngIf="review.invalid && review.touched && review.errors.restrictedWords">Restricted words found:
+        {{review.errors.restrictedWords}}</em>
+    <textarea id="review" [ngClass]="{'error': review.invalid && review.touched}" formControlName="review"
+        placeholder="Review"></textarea>
+    <label for="rating">Rating:</label>
+    <input id="rating" formControlName="rating" type="range" min="1" max="5">
+    <button type="submit" [disabled]="newReviewForm.invalid">Submit</button>
+    <button id="cancel" (click)="cancel()">Cancel</button>
+</form>

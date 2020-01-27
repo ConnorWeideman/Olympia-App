@@ -1,0 +1,17 @@
+<h1>Edit Your Profile</h1>
+<hr>
+<form [formGroup]="profileForm" class="profile" (ngSubmit)="saveProfile(profileForm.value)" autocomplete="off"
+    novalidate>
+    <label for="nickname">Nickname:</label>
+    <em *ngIf="!nicknameValid()">Required</em>
+    <input formControlName="nickname" [ngClass]="{'error': !nicknameValid()}" type="text" placeholder="Nickname"
+        name="nickname">
+    <label for="email">Email Address:</label>
+    <em *ngIf="!emailValid() && profileForm.controls.email.errors.email">Must be a valid email address</em>
+    <input formControlName="email" [ngClass]="{'error': !emailValid()}" type="email" placeholder="Email" name="email">
+    <div class="buttons">
+        <button [disabled]="!nicknameValid() || !emailValid()" type="submit" id="submit">Save</button>
+        <button type="button" id="cancel" (click)="cancel()">Cancel</button>
+        <button type="button" id="logout" (click)="logout()">Logout</button>
+    </div>
+</form>

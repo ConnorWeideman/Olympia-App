@@ -1,0 +1,65 @@
+<h1>Add Food</h1>
+<hr>
+<form #addFoodForm="ngForm" (ngSubmit)="saveFood(addFoodForm.value)" autocomplete="off" novalidate>
+    <label for="name">Name:</label>
+    <em *ngIf="addFoodForm.controls.name?.invalid && addFoodForm.controls.name?.touched">Required</em>
+    <input (ngModel)="newFood.name"
+        [ngClass]="{'error': addFoodForm.controls.name?.invalid && addFoodForm.controls.name?.touched}" name="name"
+        id="name" type="text" placeholder="Food Name..." required>
+    <label for="description">Description:</label>
+    <em *ngIf="addFoodForm.controls.description?.invalid && addFoodForm.controls.description.touched">Required</em>
+    <textarea (ngModel)="newFood.description"
+        [ngClass]="{'error': addFoodForm.controls.description?.invalid && addFoodForm.controls.description?.touched}"
+        name="description" id="description" placeholder="Description..." required></textarea>
+    <label for="price">Price:</label>
+    <em *ngIf="addFoodForm.controls.price?.invalid && addFoodForm.controls.price?.touched">Required</em>
+    <input type="number" (ngModel)="newFood.price"
+        [ngClass]="{'error': addFoodForm.controls.price?.invalid && addFoodForm.controls.price?.touched}" name="price"
+        id="price" required placeholder="Price...">
+    <label for="photo">Photo Url:</label>
+    <em
+        *ngIf="addFoodForm.controls.photo?.invalid && addFoodForm.controls.photo?.errors.required && addFoodForm.controls.photo?.touched">Required</em>
+    <em
+        *ngIf="addFoodForm.controls.photo?.invalid && addFoodForm.controls.photo?.errors.pattern && addFoodForm.controls.photo?.touched">Must
+        be a valid image file</em>
+    <input type="text" (ngModel)="newFood.photo" name="photo" id="photo" placeholder="Url..." required
+        [ngClass]="{'error': addFoodForm.controls.photo?.invalid && addFoodForm.controls.photo?.touched}"
+        pattern="([/|.|\w|\s|-]){1,}\.(?:jpg|png)">
+    <div id="showPhoto" *ngIf="addFoodForm.controls.photo?.valid && imgBlur">
+        <img src="{{addFoodForm.controls.photo.value | img}}">
+    </div>
+    <label for="instructions">Cooking Instructions:</label>
+    <textarea (ngModel)="newFood.instructions" name="instructions" id="instructions"
+        placeholder="Instructions..."></textarea>
+    <label for="allergens">Allergens:</label>
+    <input type="text" (ngModel)="newFood.allergens" name="allergens" id="allergens" placeholder="Allergens...">
+
+
+    <fieldset ngModelGroup="type" id="type">
+        <legend>Type:</legend>
+
+        <div class="type">
+            <label for="vegetarian">Vegetarian/Vegan:</label>
+            <input (ngModel)="vegetarian" type="checkbox" name="vegetarian" id="vegetarian">
+        </div>
+        <div class="type">
+            <label for="lowCarb">Low-Carb:</label>
+            <input (ngModel)="lowCarb" type="checkbox" name="lowCarb" id="lowCarb">
+        </div>
+        <div class="type">
+            <label for="dessert">Dessert:</label>
+            <input (ngModel)="dessert" type="checkbox" name="dessert" id="dessert">
+        </div>
+        <div class="type">
+            <label for="lunchbox">Lunchbox:</label>
+            <input (ngModel)="lunchbox" type="checkbox" name="lunchbox" id="lunchbox">
+        </div>
+        <div class="type">
+            <label for="platter">Platter:</label>
+            <input (ngModel)="platter" type="checkbox" name="platter" id="platter">
+        </div>
+    </fieldset>
+
+    <button [disabled]="addFoodForm.invalid" type="submit">Save</button>
+    <button type="button" (click)="cancel()">Cancel</button>
+</form>

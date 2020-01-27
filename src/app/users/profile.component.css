@@ -1,0 +1,35 @@
+label {
+    padding: 0;
+    display: inline-block;
+    width: 40%;
+    margin: 20px;
+    box-sizing: border-box;
+}
+input, button {
+    display: inline-block;
+    width: 60%;
+    margin: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    background-color: #CFC;
+}
+input {
+    display: block;
+}
+.error {
+    background-color: #FAA;
+}
+em {
+    color: #F00;
+    margin: 0;
+}
+.buttons {
+    margin: 5px;
+}
+button {
+    width: auto;
+    margin: 15px;
+    padding: 15px 30px;
+}

@@ -1,0 +1,22 @@
+#food-list {
+    display: flex;
+    background-color: #5F8;
+    width: 90%;
+    margin: auto;
+    padding: 50px;
+    flex-wrap: wrap;
+}
+.food {
+    margin: 10px;
+    border: 1px solid #050;
+}
+img {
+    width: 300px;
+    object-fit: contain;
+}
+h2 {
+    padding: 10px;
+}
+button {
+    margin: 10px;
+}

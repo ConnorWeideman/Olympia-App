@@ -1,0 +1,52 @@
+form {
+    background-color: #CFC;
+    border: 1px solid #222;
+    box-shadow: 0 0 5px 1px #555;
+    width: 70%;
+    padding: 50px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin: 50px 0;
+}
+h2 {
+    margin-top: 0;
+}
+input, select, textarea {
+    display: block;
+    margin: 20px 0;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+textarea {
+    min-height: 30vh;
+}
+#rating {
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+}
+button {
+    display: inline-block;
+    width: 30%;
+    margin: 0 10%;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+#buttons {
+    width: 30%;
+    margin: 0;
+}
+#buttons button {
+    width: 40%;
+    margin: 5%;
+}
+.error {
+    background-color: #FAA;
+}
+em {
+    color: #F00;
+    padding-left: 10px;
+}

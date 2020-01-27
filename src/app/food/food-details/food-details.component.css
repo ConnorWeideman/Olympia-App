@@ -1,0 +1,35 @@
+#details {
+    padding: 50px 50px 100px;
+    background-image: linear-gradient(#AF7, #5A0);
+    color: #050;
+    min-height: 70vh;
+    box-shadow: 2px 2px 8px 2px #050;
+    position: relative;
+}
+h1 {
+    margin: 0;
+    display: inline;
+}
+img {
+    float: right;
+    height: 200px;
+    border: 5px inset #FFF;
+}
+button {
+    margin: 10px 5px;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+.buttons {
+    height: 50px;
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+#return {
+    float: right;
+}

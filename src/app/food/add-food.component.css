@@ -1,0 +1,62 @@
+*:not(hr) {
+    display: inline-block;
+    width: 40%;
+    margin: 5%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+label {
+    padding: 0;
+}
+input, button, textarea, select, fieldset {
+    border-radius: 5px;
+    outline: none;
+    background-color: #CFC;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 3px inset #DDD;
+}
+input, textarea, select {
+    width: 100%;
+}
+.error {
+    background-color: #FAA !important;
+}
+em {
+    color: #F00;
+    margin: 0;
+}
+option {
+    padding: 10px;
+}
+#showPhoto {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+button {
+    border: 3px outset #DDD;
+}
+#type {
+    padding: 0;
+    width: 100%;
+}
+.type {
+    width: 100%;
+    display: flex;
+    padding: 0;
+}
+form {
+    padding: 0;
+}
+legend {
+    background-color: #CFC;
+    border-radius: 5px;
+    border-top: 3px inset #DDD;
+}
+input[type="checkbox"] {
+    width: unset;
+}
+button:active {
+    border: 3px inset #DDD;
+    background-color: #696;
+}

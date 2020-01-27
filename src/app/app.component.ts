@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { NavComponent } from "./nav/navbar.component";
+import { AuthService } from "./users/auth.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  template: `
+    <navbar></navbar>
+    <router-outlet></router-outlet>
+  `,
+  styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title = 'Olympia-App';
+  constructor(private auth: AuthService) { }
+  // tslint:disable-next-line: use-lifecycle-interface
+  ngOnInit() {
+    this.auth.checkAuthStatus();
+  }
 }
